@@ -22,7 +22,7 @@ from src.utils import evaluate_models, save_object
 
 @dataclass
 class ModelTrainerConfig:
-    trained_model_file_path=os.path.join("artifact", "trained_model.pkl")
+    trained_model_file_path=os.path.join("artifacts", "trained_model.pkl")
 
 class ModelTrainer:
 
@@ -70,16 +70,17 @@ class ModelTrainer:
                     'n_estimators': [8,16,32,64,128,256]
                 },
                 "Linear Regression":{},
-                "XGBRegressor":{
+                "K-Neighbours classifier":{},
+                "XGBclassifier":{
                     'learning_rate':[.1,.01,.05,.001],
                     'n_estimators': [8,16,32,64,128,256]
                 },
-                "CatBoosting Regressor":{
+                "CatBoost":{
                     'depth': [6,8,10],
                     'learning_rate': [0.01, 0.05, 0.1],
                     'iterations': [30, 50, 100]
                 },
-                "AdaBoost Regressor":{
+                "AdaBoost classifier":{
                     'learning_rate':[.1,.01,0.5,.001],
                     # 'loss':['linear','square','exponential'],
                     'n_estimators': [8,16,32,64,128,256]
